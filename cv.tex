@@ -1,0 +1,72 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+
+% ---------- Formatting ----------
+\setstretch{1.05}
+\pagenumbering{gobble}
+\setlist[itemize]{noitemsep, topsep=0pt}
+
+\titleformat{\section}
+  {\large\bfseries}
+  {}
+  {0em}
+  {}
+  [\titlerule]
+
+% ---------- Commands ----------
+\newcommand{\entry}[4]{
+  \textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill \textit{#4} \\
+}
+
+\begin{document}
+
+% ---------- Header ----------
+\begin{center}
+  {\LARGE \textbf{Caius Ehmke}} \\[4pt]
+  \href{mailto:cehmke91@gmail.com}{cehmke91@gmail.com} \;|\;
+  +64 27 311 5085 \;|\;
+  \href{https://github.com/c3hmke}{github.com/c3hmke} \;|\;
+  \href{https://linkedin.com/in/cehmke91}{linkedin.com/in/cehmke91}
+\end{center}
+
+\vspace{8pt}
+
+% ---------- Experience ----------
+\section*{Experience}
+
+\entry
+  {Company Name}
+  {City, Country}
+  {Software Engineer}
+  {2022 -- Present}
+
+\begin{itemize}
+  \item Built X that improved Y by Z\%.
+  \item Designed and maintained A using B and C.
+  \item Reduced latency / cost / errors by N.
+\end{itemize}
+
+% ---------- Education ----------
+\section*{Education}
+
+\entry
+  {University Name}
+  {City, Country}
+  {B.Sc. in Computer Science}
+  {2018 -- 2022}
+
+% ---------- Skills ----------
+\section*{Skills}
+
+\textbf{Languages:} Go, Python, TypeScript, Java \\
+\textbf{Systems:} Linux, Docker, Kubernetes, AWS \\
+\textbf{Other:} Distributed systems, APIs, CI/CD
+
+\end{document}
