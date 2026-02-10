@@ -10,7 +10,7 @@
 % ---------- Formatting ----------
 \setstretch{1.05}
 \pagenumbering{gobble}
-\setlist[itemize]{noitemsep, topsep=0pt}
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=*}
 
 \titleformat{\section}
   {\large\bfseries}
@@ -39,34 +39,69 @@
 \vspace{8pt}
 
 % ---------- Experience ----------
+\vspace{-6pt}
 \section*{Experience}
+\vspace{-2pt}
 
 \entry
-  {Company Name}
-  {City, Country}
-  {Software Engineer}
-  {2022 -- Present}
+  {BIT B.V.}
+  {Ede, NL}
+  {Senior Software Engineer}
+  {2023 -- Present}
 
 \begin{itemize}
-  \item Built X that improved Y by Z\%.
-  \item Designed and maintained A using B and C.
-  \item Reduced latency / cost / errors by N.
+  \item Designed core architecture for a service-federation protocol enabling cross-provider service hosting, as part of the ECOFED project.
+  \item Modernised a legacy internal ticketing and customer communication system, replacing an undocumented, organically grown codebase with a maintainable platform now actively developed by junior and mid-level engineers.
+  \item Took ownership of a stalled physical access control project and delivered a distributed system integrating scheduling APIs, message queues, and on-premises security infrastructure for a data centre environment.
+  \item Designed and implemented an end-to-end offers and billing workflow, integrating sales, accounting, and invoicing systems to reduce manual work and improve accuracy.
+  \item Provided day-to-day technical guidance to team members through design discussions, code review, and problem-solving support.
 \end{itemize}
+
+\entry
+  {Copernica B.V.}
+  {Amsterdam, NL}
+  {Software Engineer}
+  {2022}
+
+\begin{itemize}
+  \item Worked on internal platforms supporting engineering and operations, including maintenance and extension of an in-house ticketing system.
+  \item Delivered incremental improvements and fixes across existing systems, focusing on reliability, correctness, and maintainability.
+  \item Investigated and resolved issues across a legacy codebase, often working from limited documentation and existing behaviour.
+\end{itemize}
+
+\entry
+  {Atabix Solutions B.V.}
+  {Amsterdam, NL}
+  {Software Engineer}
+  {2020 -- 2021}
+
+\begin{itemize}
+  \item Built and maintained back-end services for multiple client projects, primarily data-intensive systems with bespoke business logic.
+  \item Took primary responsibility for back-end design and implementation on several client systems, working independently with front-end developers and receiving periodic technical sign-off.
+  \item Delivered a member management system for universities, including migration from a legacy platform; later extended for use by football associations.
+  \item Implemented a custom invoicing and reporting system for a law firm, tailored to domain-specific metrics and operational requirements.
+\end{itemize}
+
+\section*{Earlier Experience}
+
+\textbf{Software Engineer} — comscore B.V., Amsterdam, NL \hfill 2019 \\
+\textbf{Software Engineer} — Signify Ltd., Wellington, NZ \hfill 2018 \\
+\textbf{Junior Software Engineer} — Common Ledger Ltd., Wellington, NZ \hfill 2016 -- 2018
 
 % ---------- Education ----------
 \section*{Education}
 
 \entry
-  {University Name}
-  {City, Country}
-  {B.Sc. in Computer Science}
-  {2018 -- 2022}
+  {University of Pretoria}
+  {Pretoria, ZA}
+  {BIS in Multimedia}
+  {Jan 2013 -- Dec 2015}
 
 % ---------- Skills ----------
 \section*{Skills}
 
-\textbf{Languages:} Go, Python, TypeScript, Java \\
-\textbf{Systems:} Linux, Docker, Kubernetes, AWS \\
-\textbf{Other:} Distributed systems, APIs, CI/CD
+\textbf{Languages:} C\#, PHP, TypeScript, VueJS \\
+\textbf{Frameworks:} Linux, Docker \\
+\textbf{Systems:} Distributed systems, APIs, CI/CD
 
 \end{document}
