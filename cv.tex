@@ -1,16 +1,22 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt, a4paper]{article}
 
 % ---------- Packages ----------
 \usepackage[margin=1in]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
 \usepackage{setspace}
+\usepackage{sourcesanspro}
+\usepackage[table]{xcolor}
+
 
 % ---------- Formatting ----------
 \setstretch{1.05}
 \pagenumbering{gobble}
-\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=*}
+\setlist[itemize]{noitemsep, topsep=1pt, leftmargin=2em}
+
+\definecolor{rolebg}{RGB}{245,245,245}
 
 \titleformat{\section}
   {\large\bfseries}
@@ -20,35 +26,34 @@
   [\titlerule]
 
 % ---------- Commands ----------
-\newcommand{\entry}[4]{
-  \textbf{#1} \hfill #2 \\
-  \textit{#3} \hfill \textit{#4} \\
+\renewcommand{\familydefault}{\sfdefault}
+
+\newcommand{\role}[4]{
+  \noindent
+  \begin{tabularx}{\textwidth}{X l r}
+    \textbf{#1} — \textit{#2} &
+    \textit{#3} & 
+    \textit {\makebox[6em][r]{#4}}
+  \end{tabularx}
 }
 
-\begin{document}
 
+\begin{document}
 % ---------- Header ----------
 \begin{center}
-  {\LARGE \textbf{Caius Ehmke}} \\[4pt]
+  {\LARGE \textbf{Caius Ehmke}}
+  \\[4pt]
   \href{mailto:cehmke91@gmail.com}{cehmke91@gmail.com} \;|\;
   +64 27 311 5085 \;|\;
   \href{https://github.com/c3hmke}{github.com/c3hmke} \;|\;
   \href{https://linkedin.com/in/cehmke91}{linkedin.com/in/cehmke91}
 \end{center}
 
-\vspace{8pt}
 
 % ---------- Experience ----------
-\vspace{-6pt}
 \section*{Experience}
-\vspace{-2pt}
 
-\entry
-  {BIT B.V.}
-  {Ede, NL}
-  {Senior Software Engineer}
-  {2023 -- Present}
-
+\role{BIT B.V.}{Sr. Software Engineer}{Ede, NL}{2023 -- Present}
 \begin{itemize}
   \item Designed core architecture for a service-federation protocol enabling cross-provider service hosting, as part of the ECOFED project.
   \item Modernised a legacy internal ticketing and customer communication system, replacing an undocumented, organically grown codebase with a maintainable platform now actively developed by junior and mid-level engineers.
@@ -56,46 +61,35 @@
   \item Designed and implemented an end-to-end offers and billing workflow, integrating sales, accounting, and invoicing systems to reduce manual work and improve accuracy.
   \item Provided day-to-day technical guidance to team members through design discussions, code review, and problem-solving support.
 \end{itemize}
+\vspace{6pt}
 
-\entry
-  {Copernica B.V.}
-  {Amsterdam, NL}
-  {Software Engineer}
-  {2022}
-
+\role{Copernica B.V.}{Software Engineer}{Amsterdam, NL}{2022}
 \begin{itemize}
   \item Worked on internal platforms supporting engineering and operations, including maintenance and extension of an in-house ticketing system.
   \item Delivered incremental improvements and fixes across existing systems, focusing on reliability, correctness, and maintainability.
   \item Investigated and resolved issues across a legacy codebase, often working from limited documentation and existing behaviour.
 \end{itemize}
+\vspace{6pt}
 
-\entry
-  {Atabix Solutions B.V.}
-  {Amsterdam, NL}
-  {Software Engineer}
-  {2020 -- 2021}
-
+\role{Atabix Solutions B.V.}{Software Engineer}{Amsterdam, NL}{2020 -- 2021}
 \begin{itemize}
   \item Built and maintained back-end services for multiple client projects, primarily data-intensive systems with bespoke business logic.
   \item Took primary responsibility for back-end design and implementation on several client systems, working independently with front-end developers and receiving periodic technical sign-off.
   \item Delivered a member management system for universities, including migration from a legacy platform; later extended for use by football associations.
   \item Implemented a custom invoicing and reporting system for a law firm, tailored to domain-specific metrics and operational requirements.
 \end{itemize}
+\vspace{6pt}
 
 \section*{Earlier Experience}
-
-\textbf{Software Engineer} — comscore B.V., Amsterdam, NL \hfill 2019 \\
-\textbf{Software Engineer} — Signify Ltd., Wellington, NZ \hfill 2018 \\
-\textbf{Junior Software Engineer} — Common Ledger Ltd., Wellington, NZ \hfill 2016 -- 2018
+\vspace{-6pt}
+\role{comscore B.V.}{Software Engineer}{Amsterdam, NL}{2019}
+\role{Signify Ltd.}{Software Engineer}{Wellington, NZ}{2018}
+\role{Common Ledger Ltd.}{Jr. Software Engineer}{Wellington, NL}{2016 -- 2018}
 
 % ---------- Education ----------
 \section*{Education}
-
-\entry
-  {University of Pretoria}
-  {Pretoria, ZA}
-  {BIS in Multimedia}
-  {Jan 2013 -- Dec 2015}
+\vspace{-6pt}
+\role{University of Pretoria}{BIS in Multimedia}{Pretoria, ZA}{2013 -- 2015}
 
 % ---------- Skills ----------
 \section*{Skills}
