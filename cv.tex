@@ -9,14 +9,14 @@
 \usepackage{setspace}
 \usepackage[table]{xcolor}
 \usepackage{fontspec}
-\usepackage[utf8]{inputenc}
 \usepackage[document]{ragged2e}
 
 \pagenumbering{gobble}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{2pt}
 
-\definecolor{teal}{HTML}{00786C}
+\definecolor{brandteal}{HTML}{00786C}
+\definecolor{rolebg}{RGB}{245,245,245}
 
 % ---------- Fonts ----------
 % Body — Montserrat
@@ -39,48 +39,56 @@
   BoldItalicFeatures  = {Weight=700}
 ]
 
+% ---------- Commands ----------
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\sectionrule}{\color[gray]{0.4}\titlerule}
+
+\newcommand{\role}[4]{
+  \noindent
+  \begin{tabularx}{\textwidth}{X r}
+    \textbf{#1} & {\color[gray]{0.4}\textit{#3}} \\
+    \textit{#2} & {\color[gray]{0.4}\textit{#4}} \\
+  \end{tabularx}
+  \vspace{1pt}
+}
+
+\newcommand{\earlierrole}[4]{
+  \noindent
+  \begin{tabularx}{\textwidth}{X r}
+    \textbf{#1}\textendash\hspace{0.4em}\textit{#2} &
+    {\color[gray]{0.4}\textit{#3, #4}}
+  \end{tabularx}
+  \vspace{2pt}
+}
+
 % ---------- Formatting ----------
 \setstretch{1.05}
 \pagenumbering{gobble}
 \setlist[itemize]{noitemsep, topsep=1pt, leftmargin=2em}
 
-\definecolor{rolebg}{RGB}{245,245,245}
 
 \titleformat{\section}
-  {\headingfont\large\bfseries}
+  {\headingfont\large\bfseries\color{brandteal}}
   {}
   {0em}
   {\MakeUppercase}
-  [\titlerule]
+  [\sectionrule]
 
-% ---------- Commands ----------
-\renewcommand{\familydefault}{\sfdefault}
-
-\newcommand{\role}[4]{
-  \noindent
-  \begin{tabularx}{\textwidth}{X l r}
-    \textbf{#1} — \textit{#2} &
-    \textit{#3} & 
-    \textit {\makebox[6em][r]{#4}}
-  \end{tabularx}
-}
-
-
+% ------------------------------
 \begin{document}
-
 
 % ---------- Heading ----------
 {\headingfont\Huge\bfseries
-{\color{teal} Caius Ehmke}
+{\color{brandteal} Caius Ehmke}
 \textendash\hspace{1pt}
 {\fontsize{18}{20}\selectfont Software Engineer}
 \hfill
-{\small\color[gray]{0.25} NZ Permanent Resident}
+{\small\color[gray]{0.4} NZ Permanent Resident}
 }
 \vspace{14pt}
 
 {\centering
-\small\color[gray]{0.25}
+\small\color[gray]{0.4}
 \href{tel:+64273115085}{027 311 5085}
 \quad $\cdot$ \quad
 \href{mailto:cehmke91@gmail.com}{cehmke91@gmail.com}
@@ -99,7 +107,7 @@
 Backend engineer focused on data-intensive systems. Strong experience in system design, APIs, data modelling, and legacy modernisation, including decomposing monoliths and evolving systems toward more maintainable architectures.
 \par
 }
-\vspace{18pt}
+\vspace{12pt}
 
 % ---------- Two Column Layout ----------
 \noindent
@@ -116,7 +124,7 @@ Backend engineer focused on data-intensive systems. Strong experience in system 
   \item Designed and implemented an end-to-end offers and billing workflow, integrating sales, accounting, and invoicing systems to reduce manual work and improve accuracy.
   \item Provided day-to-day technical guidance to team members through design discussions, code review, and problem-solving support.
 \end{itemize}
-\vspace{6pt}
+\vspace{12pt}
 
 \role{Copernica B.V.}{Software Engineer}{Amsterdam, NL}{2022}
 \begin{itemize}
@@ -124,20 +132,20 @@ Backend engineer focused on data-intensive systems. Strong experience in system 
   \item Delivered incremental improvements and fixes across existing systems, focusing on reliability, correctness, and maintainability.
   \item Investigated and resolved issues across a legacy codebase, often working from limited documentation and existing behaviour.
 \end{itemize}
-\vspace{6pt}
+\vspace{12pt}
 
 \role{Atabix Solutions B.V.}{Software Engineer}{Amsterdam, NL}{2020 --- 2021}
 \begin{itemize}
   \item Took primary responsibility for back-end design and implementation on several client systems, working independently with front-end developers and receiving periodic technical sign-off.
   \item Delivered bespoke systems including legacy migrations, invoicing/reporting platforms, and domain-specific data processing solutions for clients.
 \end{itemize}
-\vspace{6pt}
+\vspace{12pt}
 
 \section*{Earlier Experience}
 \vspace{-6pt}
-\role{comscore B.V.}{Software Engineer}{Amsterdam, NL}{2019}
-\role{Signify Ltd.}{Software Engineer}{Wellington, NZ}{2018}
-\role{Common Ledger Ltd.}{Jr. Software Engineer}{Wellington, NL}{2016 --- 2018}
+\earlierrole{comscore B.V.}{Software Engineer}{Amsterdam, NL}{2019}
+\earlierrole{Signify Ltd.}{Software Engineer}{Wellington, NZ}{2018}
+\earlierrole{Common Ledger Ltd.}{Jr. Software Engineer}{Wellington, NZ}{2016 --- 2018}
 
 \end{minipage}
 \hfill
