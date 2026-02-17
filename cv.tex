@@ -47,7 +47,7 @@
 \newcommand{\role}[4]{
   \noindent
   \begin{tabularx}{\textwidth}{X r}
-    \headingfont\textbf{#1} &
+    \headingfont\large\textbf{#1} &
     {\color[gray]{0.4}\headingfont\textbf{#3}} \\
     {\headingfont\small\textbf{#2}} &
     {\color[gray]{0.4}\headingfont\small\textbf{#4}} \\
@@ -65,6 +65,13 @@
     }
   \end{tabularx}
   \vspace{2pt}
+}
+
+\newcommand{\education}[3]{% #1=Degree, #2=Institution, #3=Dates
+  {\headingfont\large\bfseries #1\par}
+  \vspace{2pt}
+  {\small #2\par}
+  {\small #3\par}
 }
 
 % ---------- Formatting ----------
@@ -122,7 +129,7 @@ Backend engineer focused on data-intensive systems. Strong experience in system 
 
 % ---------- Two Column Layout ----------
 \noindent
-\begin{minipage}[t]{0.68\textwidth}% LEFT COLUMN (70%)
+\begin{minipage}[t]{0.70\textwidth}% LEFT COLUMN (70%)
 
 % ---------- Experience ----------
 \section*{Experience}
@@ -135,7 +142,7 @@ Backend engineer focused on data-intensive systems. Strong experience in system 
   \item Designed and implemented an end-to-end offers and billing workflow, integrating sales, accounting, and invoicing systems to reduce manual work and improve accuracy.
   \item Provided day-to-day technical guidance to team members through design discussions, code review, and problem-solving support.
 \end{itemize}
-\vspace{12pt}
+\vspace{14pt}
 
 \role{Copernica B.V.}{Software Engineer}{2022}{Amsterdam, Netherlands}
 \begin{itemize}
@@ -143,7 +150,7 @@ Backend engineer focused on data-intensive systems. Strong experience in system 
   \item Delivered incremental improvements and fixes across existing systems, focusing on reliability, correctness, and maintainability.
   \item Investigated and resolved issues across a legacy codebase, often working from limited documentation and existing behaviour.
 \end{itemize}
-\vspace{12pt}
+\vspace{14pt}
 
 \role{Atabix Solutions B.V.}{Software Engineer}{2020 \textendash\hspace{1pt}2021}{Amsterdam, Netherlands}
 \begin{itemize}
@@ -157,14 +164,30 @@ Backend engineer focused on data-intensive systems. Strong experience in system 
 % ---------- Skills ----------
 \section*{Skills}
 
-\textbf{Languages:} C\#, PHP, TypeScript, VueJS \\
-\textbf{Frameworks:} Linux, Docker \\
-\textbf{Systems:} Distributed systems, APIs, CI/CD
-\vspace{16pt}
+\textbf{Backend:}\\ C\# (.NET) \\ PHP (Laravel, Symfony) \\
+\vspace{12pt}
+
+\textbf{Architecture:}\\ System design, architectural decision-making, distributed systems, event-driven design (RabbitMQ), API design, \\ service decomposition, legacy modernisation \\
+\vspace{12pt}
+
+\textbf{Data:}\\ PostgreSQL, MySQL, Redis, relational data modelling, schema evolution \& production migrations, indexing \& query optimisation \\
+\vspace{12pt}
+
+\textbf{Infrastructure:}\\ Docker, GitLab CI/CD, on-prem \& cloud environments, S3-compatible object storage \\
+\vspace{12pt}
+
+\textbf{Platforms:}\\ Linux (primary), macOS, Windows
+\vspace{12pt}
+
+\vspace{24pt}
 
 % ---------- Education ----------
 \section*{Education}
-\role{University of Pretoria}{BIS in Multimedia}{South Africa}{2013 \textendash\hspace{1pt} 2015}
+
+\education
+  {BIS Multimedia, Computer Science}
+  {University of Pretoria}
+  {South Africa \quad · \quad 2013 \textendash\hspace{1pt} 2015}
 
 \end{minipage}
 
