@@ -4,14 +4,33 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
+\usepackage[pdfpagelabels=false,hidelinks]{hyperref}
 \usepackage{tabularx}
 \usepackage{setspace}
-% \usepackage{sourcesanspro}
 \usepackage[table]{xcolor}
-
 \usepackage{fontspec}
-\setmainfont{Playfair Display}
+\usepackage[document]{ragged2e}
+
+% ---------- Fonts ----------
+% Body — Montserrat
+\setmainfont{Montserrat-VariableFont_wght.ttf}[
+  Path=fonts/,
+  ItalicFont = Montserrat-Italic-VariableFont_wght.ttf,
+  UprightFeatures     = {Weight=400},
+  ItalicFeatures      = {Weight=400},
+  BoldFeatures        = {Weight=700},
+  BoldItalicFeatures  = {Weight=700}
+]
+
+% Headings — Playfair
+\newfontfamily\headingfont{PlayfairDisplay-VariableFont_wght.ttf}[
+  Path=fonts/,
+  ItalicFont = PlayfairDisplay-Italic-VariableFont_wght.ttf,
+  UprightFeatures     = {Weight=600},
+  ItalicFeatures      = {Weight=600},
+  BoldFeatures        = {Weight=700},
+  BoldItalicFeatures  = {Weight=700}
+]
 
 % ---------- Formatting ----------
 \setstretch{1.05}
@@ -21,12 +40,12 @@
 \definecolor{rolebg}{RGB}{245,245,245}
 
 \titleformat{\section}
-  {\large\bfseries}
+  {\headingfont\large\bfseries}
   {}
   {0em}
-  {}
+  {\MakeUppercase}
   [\titlerule]
-
+  
 % ---------- Commands ----------
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -43,8 +62,7 @@
 \begin{document}
 % ---------- Header ----------
 \begin{center}
-  {\LARGE \textbf{Caius Ehmke}}
-  \\[4pt]
+  {\headingfont\LARGE\bfseries Caius Ehmke}  \\[4pt]
   \href{mailto:cehmke91@gmail.com}{cehmke91@gmail.com} \;|\;
   +64 27 311 5085 \;|\;
   \href{https://github.com/c3hmke}{github.com/c3hmke} \;|\;
@@ -55,7 +73,7 @@
 % ---------- Experience ----------
 \section*{Experience}
 
-\role{BIT B.V.}{Sr. Software Engineer}{Ede, NL}{2023 -- Present}
+\role{BIT B.V.}{Sr. Software Engineer}{Ede, NL}{2023 --- Present}
 \begin{itemize}
   \item Designed core architecture for a service-federation protocol enabling cross-provider service hosting, as part of the ECOFED project.
   \item Modernised a legacy internal ticketing and customer communication system, replacing an undocumented, organically grown codebase with a maintainable platform now actively developed by junior and mid-level engineers.
@@ -73,12 +91,10 @@
 \end{itemize}
 \vspace{6pt}
 
-\role{Atabix Solutions B.V.}{Software Engineer}{Amsterdam, NL}{2020 -- 2021}
+\role{Atabix Solutions B.V.}{Software Engineer}{Amsterdam, NL}{2020 --- 2021}
 \begin{itemize}
-  \item Built and maintained back-end services for multiple client projects, primarily data-intensive systems with bespoke business logic.
   \item Took primary responsibility for back-end design and implementation on several client systems, working independently with front-end developers and receiving periodic technical sign-off.
-  \item Delivered a member management system for universities, including migration from a legacy platform; later extended for use by football associations.
-  \item Implemented a custom invoicing and reporting system for a law firm, tailored to domain-specific metrics and operational requirements.
+  \item Delivered bespoke systems including legacy migrations, invoicing/reporting platforms, and domain-specific data processing solutions for clients.
 \end{itemize}
 \vspace{6pt}
 
@@ -86,12 +102,12 @@
 \vspace{-6pt}
 \role{comscore B.V.}{Software Engineer}{Amsterdam, NL}{2019}
 \role{Signify Ltd.}{Software Engineer}{Wellington, NZ}{2018}
-\role{Common Ledger Ltd.}{Jr. Software Engineer}{Wellington, NL}{2016 -- 2018}
+\role{Common Ledger Ltd.}{Jr. Software Engineer}{Wellington, NL}{2016 --- 2018}
 
 % ---------- Education ----------
 \section*{Education}
 \vspace{-6pt}
-\role{University of Pretoria}{BIS in Multimedia}{Pretoria, ZA}{2013 -- 2015}
+\role{University of Pretoria}{BIS in Multimedia}{Pretoria, ZA}{2013 --- 2015}
 
 % ---------- Skills ----------
 \section*{Skills}
