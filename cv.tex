@@ -25,8 +25,8 @@
   ItalicFont = Roboto-Italic-VariableFont.ttf,
   UprightFeatures     = {Weight=400},
   ItalicFeatures      = {Weight=400},
-  BoldFeatures        = {Weight=700},
-  BoldItalicFeatures  = {Weight=700}
+  BoldFeatures        = {Weight=600},
+  BoldItalicFeatures  = {Weight=600}
 ]
 
 % Headings — Playfair
@@ -46,8 +46,8 @@
 \newcommand{\role}[4]{
   \noindent
   \begin{tabularx}{\textwidth}{X r}
-    \textbf{#1} & {\color[gray]{0.4}\textit{#3}} \\
-    \textit{#2} & {\color[gray]{0.4}\textit{#4}} \\
+    \headingfont\textbf{#1} & {\color[gray]{0.4}\headingfont\textbf{#3}} \\
+    \headingfont\textbf{#2} & {\color[gray]{0.4}\headingfont\textbf{#4}} \\
   \end{tabularx}
   \vspace{1pt}
 }
@@ -55,7 +55,7 @@
 \newcommand{\earlierrole}[4]{
   \noindent
   \begin{tabularx}{\textwidth}{X r}
-    \textbf{#1}\textendash\hspace{0.4em}\textit{#2} &
+    \headingfont\textbf{#1}\textendash\hspace{0.4em}\textbf{#2} &
     {\color[gray]{0.4}\textit{#3\ ·\ #4}}
   \end{tabularx}
   \vspace{2pt}
@@ -116,7 +116,7 @@ Backend engineer focused on data-intensive systems. Strong experience in system 
 % ---------- Experience ----------
 \section*{Experience}
 
-\role{BIT B.V.}{Sr. Software Engineer}{Ede, NL}{2023 --- Present}
+\role{BIT B.V.}{Sr. Software Engineer}{Ede, NL}{2023 \textendash\hspace{1pt} Present}
 \begin{itemize}
   \item Designed core architecture for a service-federation protocol enabling cross-provider service hosting, as part of the ECOFED project.
   \item Modernised a legacy internal ticketing and customer communication system, replacing an undocumented, organically grown codebase with a maintainable platform now actively developed by junior and mid-level engineers.
@@ -134,7 +134,7 @@ Backend engineer focused on data-intensive systems. Strong experience in system 
 \end{itemize}
 \vspace{12pt}
 
-\role{Atabix Solutions B.V.}{Software Engineer}{Amsterdam, NL}{2020 --- 2021}
+\role{Atabix Solutions B.V.}{Software Engineer}{Amsterdam, NL}{2020 \textendash\hspace{1pt}2021}
 \begin{itemize}
   \item Took primary responsibility for back-end design and implementation on several client systems, working independently with front-end developers and receiving periodic technical sign-off.
   \item Delivered bespoke systems including legacy migrations, invoicing/reporting platforms, and domain-specific data processing solutions for clients.
@@ -154,7 +154,7 @@ Backend engineer focused on data-intensive systems. Strong experience in system 
 
 % ---------- Education ----------
 \section*{Education}
-\role{University of Pretoria}{BIS in Multimedia}{Pretoria, ZA}{2013\textendash15}
+\role{University of Pretoria}{BIS in Multimedia}{Pretoria, ZA}{2013 \textendash\hspace{1pt} 2015}
 
 \end{minipage}
 
@@ -163,6 +163,6 @@ Backend engineer focused on data-intensive systems. Strong experience in system 
 \vspace{-6pt}
 \earlierrole{comscore B.V.}{Software Engineer}{Amsterdam, NL}{2019}
 \earlierrole{Signify Ltd.}{Software Engineer}{Wellington, NZ}{2018}
-\earlierrole{Common Ledger Ltd.}{Jr. Software Engineer}{Wellington, NZ}{2016\textendash18}
+\earlierrole{Common Ledger Ltd.}{Jr. Software Engineer}{Wellington, NZ}{2016 \textendash\hspace{1pt} 2018}
 
 \end{document}
