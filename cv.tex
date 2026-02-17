@@ -57,9 +57,12 @@
 
 \newcommand{\earlierrole}[4]{
   \noindent
-  \begin{tabularx}{\textwidth}{X r}
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
     \headingfont\textbf{#1}\textendash\hspace{0.4em}\textbf{#2} &
-    {\color[gray]{0.4}\textit{#3\ ·\ #4}}
+    {\color[gray]{0.4}\small
+      \makebox[77pt][l]{#3}%
+      \makebox[92.5pt][r]{#4}%
+    }
   \end{tabularx}
   \vspace{2pt}
 }
