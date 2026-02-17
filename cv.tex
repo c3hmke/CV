@@ -6,6 +6,7 @@
 \usepackage{enumitem}
 \usepackage[pdfpagelabels=false,hidelinks]{hyperref}
 \usepackage{tabularx}
+\usepackage{graphicx}
 \usepackage{setspace}
 \usepackage[table]{xcolor}
 \usepackage{fontspec}
@@ -64,8 +65,14 @@
 % ---------- Formatting ----------
 \setstretch{1.05}
 \pagenumbering{gobble}
-\setlist[itemize]{noitemsep, topsep=1pt, leftmargin=2em}
-
+\setlist[itemize]{
+  leftmargin=2em,
+  itemsep=3pt,
+  parsep=0pt,
+  partopsep=0pt,
+  topsep=0pt,
+  label=\textcolor[gray]{0.4}{\raisebox{0.2ex}{\scriptsize$\bullet$}}
+}
 
 \titleformat{\section}
   {\headingfont\large\bfseries\color{brandteal}}
@@ -85,7 +92,7 @@
 \hfill
 {\small\color[gray]{0.4} NZ Permanent Resident}
 }
-\vspace{14pt}
+\vspace{12pt}
 
 {\centering
 \small\color[gray]{0.4}
@@ -98,7 +105,7 @@
 \href{https://github.com/c3hmke}{github.com/c3hmke}
 \par
 }
-\vspace{14pt}
+\vspace{12pt}
 
 
 % ---------- About ----------
@@ -107,7 +114,6 @@
 Backend engineer focused on data-intensive systems. Strong experience in system design, APIs, data modelling, and legacy modernisation, including decomposing monoliths and evolving systems toward more maintainable architectures.
 \par
 }
-\vspace{12pt}
 
 % ---------- Two Column Layout ----------
 \noindent
@@ -139,7 +145,6 @@ Backend engineer focused on data-intensive systems. Strong experience in system 
   \item Took primary responsibility for back-end design and implementation on several client systems, working independently with front-end developers and receiving periodic technical sign-off.
   \item Delivered bespoke systems including legacy migrations, invoicing/reporting platforms, and domain-specific data processing solutions for clients.
 \end{itemize}
-\vspace{12pt}
 
 \end{minipage}
 \hfill
