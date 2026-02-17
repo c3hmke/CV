@@ -1,7 +1,7 @@
-\documentclass[11pt, a4paper]{article}
+\documentclass[11pt,a4paper]{article}
 
 % ---------- Packages ----------
-\usepackage[margin=1in]{geometry}
+\usepackage[a4paper,margin=1.4cm]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage[pdfpagelabels=false,hidelinks]{hyperref}
@@ -9,7 +9,12 @@
 \usepackage{setspace}
 \usepackage[table]{xcolor}
 \usepackage{fontspec}
+\usepackage[utf8]{inputenc}
 \usepackage[document]{ragged2e}
+
+\pagenumbering{gobble}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
 
 % ---------- Fonts ----------
 % Body — Montserrat
@@ -45,7 +50,7 @@
   {0em}
   {\MakeUppercase}
   [\titlerule]
-  
+
 % ---------- Commands ----------
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -60,15 +65,26 @@
 
 
 \begin{document}
-% ---------- Header ----------
-\begin{center}
-  {\headingfont\LARGE\bfseries Caius Ehmke}  \\[4pt]
-  \href{mailto:cehmke91@gmail.com}{cehmke91@gmail.com} \;|\;
-  +64 27 311 5085 \;|\;
-  \href{https://github.com/c3hmke}{github.com/c3hmke} \;|\;
-  \href{https://linkedin.com/in/cehmke91}{linkedin.com/in/cehmke91}
-\end{center}
 
+
+% ---------- Heading ----------
+{\headingfont\Huge\bfseries Caius Ehmke - \Large Software Engineer
+\hfill
+\normalsize NZ Permanent Resident
+}\par
+
+\begin{center}
+{\small
+\href{tel:+64273115085}{027 311 5085}
+\quad $\cdot$ \quad
+\href{mailto:cehmke91@gmail.com}{cehmke91@gmail.com}
+\quad $\cdot$ \quad
+\href{https://linkedin.com/in/cehmke91}{linkedin.com/in/cehmke91}
+\quad $\cdot$ \quad
+\href{https://github.com/c3hmke}{github.com/c3hmke}
+}\par
+\end{center}
+% ----------------------------
 
 % ---------- Experience ----------
 \section*{Experience}
