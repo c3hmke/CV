@@ -43,15 +43,14 @@
 \renewcommand{\familydefault}{\sfdefault}
 \newcommand{\sectionrule}{\color[gray]{0.4}\titlerule}
 
+\newcommand{\headingbold}{\headingfont\bfseries}
 \newcommand{\headingregular}{\headingfont\mdseries}
 
 \newcommand{\role}[4]{% #1=Company, #2=Title, #3=Dates, #4=Location
   \noindent
   \begin{tabularx}{\textwidth}{X r}
-    \headingfont\large\bfseries #1 &
-    {\color[gray]{0.4}\headingregular #3} \\
-    {\headingregular\small #2} &
-    {\color[gray]{0.4}\headingregular\small #4} \\
+    \headingbold\large#1 & {\color[gray]{0.4}\headingregular#3} \\
+    {\headingregular\small#2} & {\color[gray]{0.4}\headingregular\small#4} \\
   \end{tabularx}
   \vspace{1pt}
 }
@@ -60,18 +59,15 @@
 \newcommand{\earlierrole}[4]{% #1=Company, #2=Title, #3=Dates, #4=Location
   \noindent
   \begin{tabularx}{\textwidth}{@{}X r@{}}
-    \headingfont\bfseries #1\textendash\hspace{0.4em}\bfseries #2 &
-    {\color[gray]{0.4}\small
-      \makebox[77pt][l]{#3}%
-      \makebox[92.5pt][r]{#4}%
-    }
+    \headingbold#1 \headingregular\hspace{2pt}\textendash\hspace{2pt} #2 &
+    {\color[gray]{0.4}\small\makebox[77pt][l]{#3}\makebox[92.5pt][r]{#4}}
   \end{tabularx}
   \vspace{2pt}
 }
 
 % 
 \newcommand{\education}[3]{% #1=Degree, #2=Institution, #3=Dates
-  {\headingfont\normalsize\bfseries #1\par}
+  {\headingbold\normalsize#1\par}
   \vspace{2pt}
   {\small #2\par}
   {\small #3\par}
@@ -90,7 +86,7 @@
 }
 
 \titleformat{\section}
-  {\headingfont\large\bfseries\color{brandteal}}
+  {\headingbold\large\color{brandteal}}
   {}
   {0em}
   {\MakeUppercase}
@@ -100,7 +96,7 @@
 \begin{document}
 
 % ---------- Heading ----------
-{\headingfont\Huge\bfseries
+{\headingbold\Huge
 {\color{brandteal} Caius Ehmke}
 \textendash\hspace{1pt}
 {\fontsize{18}{20}\selectfont Software Engineer}
@@ -167,36 +163,32 @@ Backend engineer focused on data-intensive systems. Strong experience in system 
 % ---------- Skills ----------
 \section*{Skills}
 
-{\headingfont\bfseries Languages}\\
+{\headingbold Languages}\\
 \vspace{4pt}
 C\# (.NET) \\
 PHP (Laravel, Symfony) \\
 JS (Node, Vue)
-
 \vspace{12pt}
 
-{\headingfont\bfseries Architecture}\\
+{\headingbold Architecture}\\
 \vspace{4pt}
 System design, architectural decision-making, distributed systems, event-driven design (RabbitMQ), API design, service decomposition, legacy modernisation
 
 \vspace{12pt}
 
-{\headingfont\bfseries Data}\\
+{\headingbold Data}\\
 \vspace{4pt}
 PostgreSQL, MySQL, Redis, object storage (S3),\\relational data modelling, schema evolution \& production migrations, indexing \& query optimisation
-
 \vspace{12pt}
 
-{\headingfont\bfseries Infrastructure}\\
+{\headingbold Infrastructure}\\
 \vspace{4pt}
 Docker, CI/CD (pipeline design), centralised logging \& monitoring, on-prem \& cloud environments
-
 \vspace{12pt}
 
-{\headingfont\bfseries Platforms}\\
+{\headingbold Platforms}\\
 \vspace{4pt}
 Linux (daily driver), \\ macOS, Windows
-
 \vspace{24pt}
 
 % ---------- Education ----------
