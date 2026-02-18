@@ -36,29 +36,30 @@
   ItalicFont = PlayfairDisplay-Italic-VariableFont_wght.ttf,
   UprightFeatures     = {Weight=800},
   ItalicFeatures      = {Weight=800},
-  BoldFeatures        = {Weight=700},
-  BoldItalicFeatures  = {Weight=700}
+  BoldFeatures        = {Weight=900},
+  BoldItalicFeatures  = {Weight=900}
 ]
 
 % ---------- Commands ----------
 \renewcommand{\familydefault}{\sfdefault}
 \newcommand{\sectionrule}{\color[gray]{0.4}\titlerule}
 
-\newcommand{\role}[4]{
+\newcommand{\role}[4]{% #1=Company, #2=Title, #3=Dates, #4=Location
   \noindent
   \begin{tabularx}{\textwidth}{X r}
-    \headingfont\large\textbf{#1} &
-    {\color[gray]{0.4}\headingfont\textbf{#3}} \\
-    {\headingfont\small\textbf{#2}} &
-    {\color[gray]{0.4}\headingfont\small\textbf{#4}} \\
+    \headingfont\large\bfseries #1 &
+    {\color[gray]{0.4}\headingfont\bfseries #3} \\
+    {\headingfont\small\bfseries #2} &
+    {\color[gray]{0.4}\headingfont\small\bfseries #4} \\
   \end{tabularx}
   \vspace{1pt}
 }
 
-\newcommand{\earlierrole}[4]{
+% Compacted version of the role command to fit across a single line
+\newcommand{\earlierrole}[4]{% #1=Company, #2=Title, #3=Dates, #4=Location
   \noindent
   \begin{tabularx}{\textwidth}{@{}X r@{}}
-    \headingfont\textbf{#1}\textendash\hspace{0.4em}\textbf{#2} &
+    \headingfont\bfseries #1\textendash\hspace{0.4em}\bfseries #2 &
     {\color[gray]{0.4}\small
       \makebox[77pt][l]{#3}%
       \makebox[92.5pt][r]{#4}%
@@ -67,6 +68,7 @@
   \vspace{2pt}
 }
 
+% 
 \newcommand{\education}[3]{% #1=Degree, #2=Institution, #3=Dates
   {\headingfont\large\bfseries #1\par}
   \vspace{2pt}
@@ -180,13 +182,13 @@ System design, architectural decision-making, distributed systems, event-driven 
 
 {\headingfont\large\bfseries Data}\\
 \vspace{4pt}
-PostgreSQL, MySQL, Redis, \\relational data modelling, schema evolution \& production migrations, indexing \& query optimisation
+PostgreSQL, MySQL, Redis, object storage (S3),\\relational data modelling, schema evolution \& production migrations, indexing \& query optimisation
 
 \vspace{12pt}
 
 {\headingfont\large\bfseries Infrastructure}\\
 \vspace{4pt}
-Docker, GitLab CI/CD, \\on-prem \& cloud environments, S3-compatible object storage
+Docker, CI/CD (pipeline design), centralised logging \& monitoring, on-prem \& cloud environments
 
 \vspace{12pt}
 
