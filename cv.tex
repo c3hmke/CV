@@ -1,25 +1,37 @@
-\documentclass[11pt,a4paper]{article}
+% !TEX program = xelatex
 
-% ---------- Packages ----------
-\usepackage[a4paper,margin=1.4cm]{geometry}
+\documentclass[10pt, a4paper]{article}
+
+% Packages
+\usepackage[a4paper,margin=1.25cm]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage[pdfpagelabels=false,hidelinks]{hyperref}
-\usepackage{tabularx}
-\usepackage{graphicx}
-\usepackage{setspace}
-\usepackage[table]{xcolor}
+\usepackage{xcolor}
 \usepackage{fontspec}
-\usepackage[document]{ragged2e}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{amssymb}
 
+\hypersetup{allcolors=black}
+\renewcommand{\labelitemi}{\textcolor[gray]{0.2}{--}}
+
+% Page formatting
+\pagestyle{empty}
 \pagenumbering{gobble}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{2pt}
 
-\definecolor{brandteal}{HTML}{00786C}
-\definecolor{rolebg}{RGB}{245,245,245}
-
 % ---------- Fonts ----------
+% Headings — Playfair
+\newfontfamily\headingfont{PlayfairDisplay-Regular.ttf}[
+  Path=fonts/,
+  BoldFont       = PlayfairDisplay-Bold.ttf,
+  ItalicFont     = PlayfairDisplay-Italic.ttf,
+  BoldItalicFont = PlayfairDisplay-BoldItalic.ttf
+]
+
 % Body — Roboto
 \setmainfont{Roboto-VariableFont.ttf}[
   Path=fonts/,
@@ -30,183 +42,158 @@
   BoldItalicFeatures  = {Weight=600}
 ]
 
-% Headings — Playfair
-\newfontfamily\headingfont{PlayfairDisplay-Regular.ttf}[
-  Path=fonts/,
-  BoldFont       = PlayfairDisplay-Bold.ttf,
-  ItalicFont     = PlayfairDisplay-Italic.ttf,
-  BoldItalicFont = PlayfairDisplay-BoldItalic.ttf
-]
+% Colors
+\definecolor{sectionblue}{RGB}{70, 90, 130}
+\definecolor{ruleblue}{RGB}{70, 90, 130}
 
+% Section formatting
+\titleformat{\section}
+  {\small\bfseries\scshape\color{sectionblue}\centering\letterspacing}
+  {}{0em}{}
+  [\vspace{-4pt}\color{ruleblue}\titlerule]
+
+\titlespacing{\section}{0pt}{6pt}{4pt}
+
+% Redefine section with colored background bar
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
 
 % ---------- Commands ----------
-\renewcommand{\familydefault}{\sfdefault}
-\newcommand{\sectionrule}{\color[gray]{0.4}\titlerule}
-
 \newcommand{\headingbold}{\headingfont\bfseries}
 \newcommand{\headingregular}{\headingfont\mdseries}
 
-\newcommand{\role}[4]{% #1=Company, #2=Title, #3=Dates, #4=Location
+\newcommand{\cvsection}[1]{%
+  \vspace{4pt}
+  \begin{tcolorbox}[
+    colback=sectionblue!15,
+    colframe=sectionblue!15,
+    sharp corners,
+    boxrule=0pt,
+    left=0pt, right=0pt,
+    top=2pt, bottom=2pt
+  ]
+  \centering\small\headingfont\bfseries\scshape\color{sectionblue}\MakeUppercase{#1}
+  \end{tcolorbox}
+  \vspace{4pt}
+}
+
+\newcommand{\role}[4]{% #1=Company, #2=Title, #3=Location, #4=Dates
   \noindent
-  \begin{tabularx}{\textwidth}{X r}
-    \headingbold\large#1 & {\color[gray]{0.4}\headingregular#3} \\
-    {\headingregular\small#2} & {\color[gray]{0.4}\headingregular\small#4} \\
+  \begin{tabularx}{\textwidth}{p{3.55cm} X r}
+    \headingbold#1 & $\cdot$\quad{\headingregular\small#2} & 
+    {\color[gray]{0.4}\headingregular\small#3\ \quad$\cdot$\quad #4} \\
   \end{tabularx}
-  \vspace{1pt}
 }
 
-% Compacted version of the role command to fit across a single line
-\newcommand{\earlierrole}[4]{% #1=Company, #2=Title, #3=Dates, #4=Location
+\newcommand{\earlyrole}[4]{% #1=Company, #2=Title, #3=Location, #4=Dates
   \noindent
-  \begin{tabularx}{\textwidth}{@{}X r@{}}
-    \headingbold#1 \headingregular\hspace{2pt}\textendash\hspace{2pt} #2 &
-    {\color[gray]{0.4}\small\makebox[77pt][l]{#3}\makebox[92.5pt][r]{#4}}
+  \begin{tabularx}{\textwidth}{p{3.55cm} X r}
+    \headingbold#1 & $\cdot$\quad{\headingregular\small#2} & 
+    {\color[gray]{0.4}\headingregular\small#3\ \quad$\cdot$ \makebox[1.85cm][r]{#4}} \\
   \end{tabularx}
-  \vspace{2pt}
 }
 
-% 
-\newcommand{\education}[3]{% #1=Degree, #2=Institution, #3=Dates
-  {\headingbold\normalsize#1\par}
-  \vspace{2pt}
-  {\small #2\par}
-  {\small #3\par}
+\newcommand{\education}[4]{% #1=Company, #2=Title, #3=Location, #4=Dates
+  \noindent
+  \begin{tabularx}{\textwidth}{l X r}
+    \headingbold#1 & $\cdot$\quad{\headingregular\small#2} & 
+    {\color[gray]{0.4}\headingregular\small#3\ \quad$\cdot$ \makebox[1.85cm][r]{#4}} \\
+  \end{tabularx}
 }
 
-% ---------- Formatting ----------
-\setstretch{1.05}
-\pagenumbering{gobble}
-\setlist[itemize]{
-  leftmargin=2em,
-  itemsep=3pt,
-  parsep=0pt,
-  partopsep=0pt,
-  topsep=0pt,
-  label=\textcolor[gray]{0.4}{\raisebox{0.2ex}{\scriptsize$\bullet$}}
+% Checkmark command
+\newcommand{\cmark}{\checkmark}
+
+% Hyperlink setup
+\hypersetup{
+  colorlinks=true,
+  urlcolor=sectionblue,
+  linkcolor=sectionblue
 }
 
-\titleformat{\section}
-  {\headingbold\large\color{brandteal}}
-  {}
-  {0em}
-  {\MakeUppercase}
-  [\sectionrule]
-
-% ------------------------------
 \begin{document}
 
-% ---------- Heading ----------
-{\headingbold\Huge
-{\color{brandteal} Caius Ehmke}
-{\headingregular\color[gray]{0.5}\textendash}\hspace{1pt}
-{\fontsize{18}{20}\selectfont Software Engineer}
-\hfill
-{\headingregular\small\color[gray]{0.4} New Zealand Permanent Resident}
-}
-\vspace{12pt}
+%---------- HEADER ----------
+\begin{center}
+  {\Huge\headingfont\bfseries\color{sectionblue}CAIUS EHMKE}\\[4pt]
+  
+  \vspace{6pt}
+  
+  \fontsize{7.75pt}{9.25pt}
+  \selectfont NZ Permanent Resident
+  \enspace $\cdot$ \enspace Kapiti, Wellington
+  \enspace $\cdot$ \enspace (+31) 62 855 8580
+  \enspace $\cdot$ \enspace cehmke91@gmail.com
+  \enspace $\cdot$ \enspace \href{https://linkedin.com/in/cehmke91}{linkedin.com/in/cehmke91}
+  \enspace $\cdot$ \enspace \href{https://github.com/c3hmke}{github.com/c3hmke} 
+\end{center}
 
-{\centering
-\small\color[gray]{0.4}
-%\href{tel:+64273115085}{027 311 5085}
-\href{tel:+31628558580}{(+31)62 855 8580}
-\quad $\cdot$ \quad
-\href{mailto:cehmke91@gmail.com}{cehmke91@gmail.com}
-\quad $\cdot$ \quad
-\href{https://linkedin.com/in/cehmke91}{linkedin.com/in/cehmke91}
-\quad $\cdot$ \quad
-\href{https://github.com/c3hmke}{github.com/c3hmke}
-\par
-}
-\vspace{12pt}
+\vspace{2pt}
+{\color{ruleblue}\hrule height 1.5pt}
+\vspace{2pt}
 
+%---------- TITLE ----------
+\begin{center}
+  \headingfont\bfseries\scshape senior software engineer \quad\textbar\quad data-intensive systems design \& legacy modernisation
+\end{center}
+\vspace{2pt}
 
-% ---------- About ----------
-{\small
-\raggedright
-Backend engineer focused on data-intensive systems. Strong experience in system design, APIs, data modelling, and legacy modernisation, including decomposing monoliths and evolving systems toward more maintainable architectures.
-\par
-}
+%---------- SUMMARY ----------
+\color[gray]{0.2}
+With 10 years of experience, I bring strong expertise in system design, APIs, data modelling, and legacy modernisation 
+with a focus on replacing ageing systems with modern, maintainable architectures that teams can actually build on. 
+I take ownership of complex problem spaces and deliver pragmatic, reliable solutions across the full development lifecycle.
+\vspace{4pt}
 
-% ---------- Two Column Layout ----------
-\noindent
-\begin{minipage}[t]{0.69\textwidth}% LEFT COLUMN (70%)
+%---------- SKILLS ----------
+\cvsection{Skills}
+\begin{tabular}{@{} p{0.24\textwidth} p{0.24\textwidth} p{0.24\textwidth} p{0.24\textwidth} @{}}
+  C\# / .NET     & API Design            & PostgreSQL / MySQL     & Docker \\
+  PHP (Laravel)  & Distributed Systems   & Relational Modelling   & CI/CD \\
+  JS (Node, Vue) & System Design         & Schema \& Migrations   & Logging \& Monitoring \\
+  RabbitMQ       & Service Decomposition & Redis / Object Storage & Event-Driven Design \\
+\end{tabular}
 
-% ---------- Experience ----------
-\section*{Experience}
+%---------- EXPERIENCE ----------
+\cvsection{Experience}
 
-\role{BIT B.V.}{Sr. Software Engineer}{2023 \textendash\hspace{1pt} Present}{Ede, Netherlands}
+\role{Sr. Software Engineer}{BIT B.V.}{Ede, Netherlands}{2023 \textendash\hspace{1pt} Present}
 \begin{itemize}
-  \item Designed core architecture for a service-federation protocol enabling \\cross-provider service hosting, as part of the ECOFED project.
-  \item Modernised a legacy internal ticketing and customer communication system, replacing an undocumented, organically grown codebase with a maintainable platform now actively developed by junior and mid-level engineers.
-  \item Took ownership of a stalled physical access control project and delivered a distributed system integrating scheduling APIs, message queues, and on-premises security infrastructure for a data centre environment.
-  \item Designed and implemented an end-to-end offers and billing workflow, \\integrating sales, accounting, and invoicing systems to reduce manual work and improve accuracy.
-  \item Provided day-to-day technical guidance to team members through design discussions, code review, and problem-solving support.
+  \color[gray]{0.2}
+  \item Co-designed the service-federation protocol at the core of ECOFED, an EU project enabling independent cloud providers to host each other's services across organisational boundaries, and collaborated with a cross-company team to evolve it further
+  \item Modernised a 30-year-old PHP platform by migrating to C\# and introducing an API layer that allowed the legacy system to be gutted incrementally, with Entity Framework abstracting the underlying database problems.
+  \item Cleared a 10-year feature backlog on a legacy internal platform by replacing an undocumented, organically grown codebase with a maintainable architecture, enabling engineers to deliver new features consistently.
+  \item Took ownership of a stalled access control project for a data centre environment, redesigning and building a \\distributed system that enforces visitor schedules by disabling access badges outside of announced visits.
+  \item Overhauled the offer and billing workflow, integrating sales, accounting, and invoicing systems to reduce manual work for the sales team by 80\%.
+  \item Built the supporting foundations for ongoing renewal, including CI/CD pipelines, raw SQL migration tooling, and a frontend toolkit to allow the existing UI to be replaced piece by piece. 
+  \item Acted as a frequent mentor and technical sounding board for team members, supporting junior and mid-level \\engineers in their development and helping senior engineers pressure-test their ideas.
 \end{itemize}
-\vspace{16pt}
+\vspace{4pt}
 
-\role{Copernica B.V.}{Software Engineer}{2022}{Amsterdam, Netherlands}
+\role{Software Engineer}{Copernica B.V.}{Amsterdam, Netherlands}{\hspace{0.95cm}2022}
 \begin{itemize}
-  \item Worked on internal platforms supporting engineering and operations, \\including maintenance and extension of an in-house ticketing system.
-  \item Delivered incremental improvements and fixes across existing systems, focusing on reliability, correctness, and maintainability.
+  \color[gray]{0.2}
+  \item Delivered incremental improvements and fixes across internal work-tracking systems, focusing on usability, \\responsiveness, and reliability.
   \item Investigated and resolved issues across a legacy codebase, often working from limited documentation and existing behaviour.
 \end{itemize}
-\vspace{16pt}
+\vspace{4pt}
 
-\role{Atabix Solutions B.V.}{Software Engineer}{2020 \textendash\hspace{1pt}2021}{Amsterdam, Netherlands}
+\role{Software Engineer}{Atabix Solutions B.V.}{Amsterdam, Netherlands}{2020 \textendash\hspace{1pt}2021}
 \begin{itemize}
-  \item Took primary responsibility for back-end design and implementation on several client systems, working independently with front-end developers and receiving periodic technical sign-off.
-  \item Delivered bespoke systems including legacy migrations, invoicing/reporting platforms, and domain-specific data processing solutions for clients.
+  \color[gray]{0.2}
+  \item Led back-end design and delivery across several client projects, including a time tracking and invoicing platform, an inventory management system, and a temp worker staffing app.
+  \item Delivered data-intensive B2B systems including a time tracking and invoicing platform, an inventory management system, and a temp worker staffing app.
+  \item Laid the foundational work for what would later become the company's ERP platform.
 \end{itemize}
-
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.29\textwidth}% RIGHT COLUMN (30%)
-% ---------- Skills ----------
-\section*{Skills}
-
-{\headingbold Languages}\\
 \vspace{4pt}
-C\# (.NET) \\
-PHP (Laravel, Symfony) \\
-JS (Node, Vue)
-\vspace{12pt}
 
-{\headingbold Architecture}\\
-\vspace{4pt}
-System design, architectural decision-making, distributed systems, event-driven design (RabbitMQ), API design, service decomposition, legacy modernisation
+\earlyrole{Software Engineer}{comscore B.V.}{Amsterdam, Netherlands}{2019}
+\earlyrole{Software Engineer}{Signify Ltd.}{Wellington, New Zealand}{2018}
+\earlyrole{Jr. Software Engineer}{Common Ledger Ltd.}{Wellington, New Zealand}{2016 \textendash\hspace{1pt} 2018}
 
-\vspace{12pt}
 
-{\headingbold Data}\\
-\vspace{4pt}
-PostgreSQL, MySQL, Redis, object storage (S3),\\relational data modelling, schema evolution \& production migrations, indexing \& query optimisation
-\vspace{12pt}
-
-{\headingbold Infrastructure}\\
-\vspace{4pt}
-Docker, CI/CD (pipeline design), centralised logging \& monitoring, on-prem \& cloud environments
-\vspace{12pt}
-
-{\headingbold Platforms}\\
-\vspace{4pt}
-Linux (daily driver), \\ macOS, Windows
-\vspace{24pt}
-
-% ---------- Education ----------
-\section*{Education}
-
-\education
-  {BIS Multimedia, Computer Science}
-  {University of Pretoria}
-  {South Africa \quad · \quad 2013 \textendash\hspace{1pt} 2015}
-
-\end{minipage}
-
-% ---------- Earlier Experience ----------
-\section*{Earlier Experience}
-\vspace{-6pt}
-\earlierrole{comscore B.V.}{Software Engineer}{Amsterdam, Netherlands}{2019}
-\earlierrole{Signify Ltd.}{Software Engineer}{Wellington, New Zealand}{2018}
-\earlierrole{Common Ledger Ltd.}{Jr. Software Engineer}{Wellington, New Zealand}{2016 \textendash\hspace{1pt} 2018}
+%---------- EDUCATION ----------
+\cvsection{Education}
+\education{BIS Multimedia, Computer Science}{University of Pretoria}{Pretoria, South Africa}{2013 \textendash\hspace{1pt} 2015}
 
 \end{document}
