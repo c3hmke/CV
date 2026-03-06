@@ -78,7 +78,7 @@
 }
 
 \newcommand{\role}[4]{% #1=Company, #2=Title, #3=Location, #4=Dates
-  \noindent
+  \noindent\color{black}
   \begin{tabularx}{\textwidth}{l X r}
     \headingbold#1 & $\cdot$\quad\headingbold\small#2 & 
     {\headingbold\small#3\ \quad$\cdot$\quad #4} \\
@@ -109,7 +109,7 @@
 \begin{center}
   {\Huge\headingfont\bfseries\color{sectionblue}CAIUS EHMKE}\\[4pt]
   
-  \vspace{6pt}
+  \vspace{8pt}
   
   \fontsize{7.75pt}{9.25pt}
   \selectfont NZ Permanent Resident
@@ -131,7 +131,8 @@
 \vspace{2pt}
 
 %---------- SUMMARY ----------
-\color[gray]{0.3}
+\color[gray]{0.3} % body text color
+
 With 10 years of experience, I bring strong expertise in system design, APIs, data modelling, and legacy modernisation 
 with a focus on replacing ageing systems with modern, maintainable architectures that teams can actually build on. 
 I take ownership of complex problem spaces and deliver pragmatic, reliable solutions across the full development lifecycle.
@@ -154,10 +155,10 @@ I take ownership of complex problem spaces and deliver pragmatic, reliable solut
 \begin{itemize}
   \color[gray]{0.3}
   \item Co-designed the service-federation protocol at the core of ECOFED, an EU-funded IPCEI-CIS project enabling independent cloud providers to host each other's services across organisational boundaries, and collaborated with a cross-company team to evolve it further.
-  \item Modernised a 30-year-old PHP platform by migrating to C\# and introducing an API layer that allowed the legacy system to be gutted incrementally, with Entity Framework abstracting the underlying database problems.
+  \item Modernised a 25-year-old PHP platform by migrating to C\# and introducing an API layer that allowed the legacy system to be gutted incrementally, with Entity Framework abstracting the underlying database problems.
   \item Cleared a 10-year feature backlog on a legacy internal platform by replacing an undocumented, organically grown codebase with a maintainable architecture, enabling engineers to deliver new features consistently.
   \item Took ownership of a stalled access control project for a data centre environment, redesigning and building a \\distributed system that enforces visitor schedules by disabling access badges outside of announced visits.
-  \item Overhauled the offer and billing workflow, integrating sales, accounting, and invoicing systems to reduce manual work for the sales team by 80\%.
+  \item Overhauled the offer and billing workflow, integrating sales, accounting, and invoicing systems to reduce manual work for the sales team by 70\%.
   \item Built the supporting foundations for ongoing renewal, including CI/CD pipelines, raw SQL migration tooling, and a frontend toolkit to allow the existing UI to be replaced piece by piece. 
   \item Acted as a frequent mentor and technical sounding board for team members, supporting junior and mid-level \\engineers in their development and helping senior engineers pressure-test their ideas.
 \end{itemize}
@@ -174,10 +175,10 @@ I take ownership of complex problem spaces and deliver pragmatic, reliable solut
 \role{Software Engineer}{Atabix Solutions B.V.}{Amsterdam, Netherlands}{2020 \textendash\hspace{1pt}2021}
 \begin{itemize}
   \color[gray]{0.3}
-  \item Led back-end design and delivery across several client projects, including a time tracking and invoicing platform, an inventory management system, and a temp worker staffing app — with the invoicing work later forming the foundation of the company's ERP platform.
+  \item Primary back-end design and delivery across several client projects, including a time tracking and invoicing platform, an inventory management system, and a temp worker staffing app — with the invoicing work later forming the foundation of the company's ERP platform.
   \item Reduced developer time by expanding internal framework tooling to genericise common patterns, particularly around API integration.
 \end{itemize}
-\vspace{6pt}
+\vspace{8pt}
 
 \noindent\textcolor[gray]{0.3}{\small Earlier roles as Software Engineer at Comscore B.V. (Amsterdam), Signify Ltd. (Wellington), and Jr. Software Engineer at Common Ledger Ltd. (Wellington) between 2016–2019, covering internal tooling, client-facing web applications, and full-stack development across a range of industries.}
 
